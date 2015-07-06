@@ -31,12 +31,15 @@ Simple Home Automation solution with MQTT
 	cd homepi
 	sudo npm install -g cordova ionic gulp
 	npm install mosca --save
+	npm install ascoltatori --save
 	npm install
 	gulp install
 ```
 
 * Run MQTT broker (Mosca)
-```node mosca_run.js
+
+```shell
+	node mosca_run.js
 ```
 
 * Publish your configuration to MQTT with the topic "username/home/config" (see publish-config.sh)

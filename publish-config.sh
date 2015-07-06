@@ -1,5 +1,5 @@
-#!/bin/sh
-mosquitto_pub -h 10.207.215.177 -u linh -P secret -p 1883 -t linh/home/config -m '[ {
+#!/bin/bash
+mosquitto_pub -h localhost -u linh -P secret -p 1883 -t linh/home/config -m '[ {
         "type" : "on_off",
         "value" : false,
         "name" : "Floorlamp 1",
