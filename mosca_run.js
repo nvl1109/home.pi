@@ -11,6 +11,10 @@ var ascoltatore = {
 
 var moscaSettings = {
   port: 1883,
+  http: {
+    port: 8000,
+    bundle: true,
+  },
   backend: ascoltatore,
   persistence: {
     factory: mosca.persistence.Mongo,
@@ -28,8 +32,10 @@ server.on('clientConnected', function(client) {
 // Fired when a client subscribed to broker
 server.on('subscribed', function(topic, client) {
   // Check is topic required:
-  if (topic == '/expected') {
+  console.log("Subscribed", topic, "by client", client.id);
+  if (topic == 'linh/#') {
     // Publish current values
+    console.log("Client subscribed on expected topic (linh/#). Publish current values...");
   }
 });
 

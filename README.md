@@ -21,9 +21,8 @@ Simple Home Automation solution with MQTT
 ## Installation
 
 * Install and start a MQTT Broker with Websocket Support, e.g.
-	* [HiveMQ](http://www.hivemq.com/)
-	* [Mosquitto](http://mosquitto.org/) with [https://github.com/stylpen/WSS]
 	* [Mosca](http://www.mosca.io/)
+	* [Mongodb] server for persistence store.
 
 * Clone the repository and install the dependencies with NPM
 
@@ -31,8 +30,13 @@ Simple Home Automation solution with MQTT
 	git clone https://github.com/denschu/homepi
 	cd homepi
 	sudo npm install -g cordova ionic gulp
+	npm install mosca --save
 	npm install
 	gulp install
+```
+
+* Run MQTT broker (Mosca)
+```node mosca_run.js
 ```
 
 * Publish your configuration to MQTT with the topic "username/home/config" (see publish-config.sh)
@@ -54,7 +58,6 @@ Example configuration:
 ```shell
 cd www
 python -m SimpleHTTPServer 8080
-mosca --http-port 8000 --http-bundle --verbose | bunyan
 ```
 Open http://localhost:8080 in a webbrowser and provide your credentials to connect to the MQTT Broker.
 
